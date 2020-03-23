@@ -2,25 +2,25 @@ var assert = require('chai').assert;
 var Part = require('../src/part');
 
 describe('Part', function() {
-  it.skip('should have a name', function() {
+  it('should have a name', function() {
     var fighterShell = new Part({name: 'X1-shell'});
 
     assert.equal(fighterShell.name, 'X1-shell');
   })
 
-  it.skip('can have a different name', function() {
+  it('can have a different name', function() {
     var hyperdrive = new Part({name: 'CV90-infinity'})
 
     assert.equal(hyperdrive.name, 'CV90-infinity');
   })
 
-  it.skip('has a type', function() {
+  it('has a type', function() {
     var hyperdrive = new Part({name: 'CV90-infinity', type: 'hyperdrive'})
 
     assert.equal(hyperdrive.type, 'hyperdrive');
   })
 
-  it.skip('can have different types', function() {
+  it('can have different types', function() {
     var fighterShell = new Part({name: 'X1-shell', type: 'shell'});
     var hyperdrive = new Part({name: 'CV90-infinity', type: 'hyperdrive'})
     var computer = new Part({name: 'Alienware 550x', type: 'computer'})
@@ -34,13 +34,13 @@ describe('Part', function() {
     assert.equal(landing.type, 'landing gear');
   })
 
-  it.skip('must have a valid type', function() {
+  it('must have a valid type', function() {
     var validTypes = [
-      'shell', 
-      'hyperdrive', 
-      'computer', 
-      'life support', 
-      'landing gear', 
+      'shell',
+      'hyperdrive',
+      'computer',
+      'life support',
+      'landing gear',
       undefined
     ]
     var computer = new Part({name: 'Alienware 550x', type: 'computer'})
@@ -56,11 +56,11 @@ describe('Part', function() {
     assert.include(validTypes, drill.type)
   })
 
-  it.skip('can have a value', function() {
+  it('can have a value', function() {
     var computer = new Part(
       {
-        name: 'Alienware 550x', 
-        type: 'computer', 
+        name: 'Alienware 550x',
+        type: 'computer',
         value: 200
       }
     )
@@ -68,11 +68,11 @@ describe('Part', function() {
     assert.equal(computer.value, 200)
   })
 
-  it.skip('can have a different value', function() {
+  it('can have a different value', function() {
     var computer = new Part(
       {
-        name: 'Alienware 550x', 
-        type: 'computer', 
+        name: 'Alienware 550x',
+        type: 'computer',
         value: 300,
       }
     )
@@ -80,11 +80,11 @@ describe('Part', function() {
     assert.equal(computer.value, 300)
   })
 
-  it.skip('is not broken by default', function() {
+  it('is not broken by default', function() {
     var computer = new Part(
       {
-        name: 'Alienware 550x', 
-        type: 'computer', 
+        name: 'Alienware 550x',
+        type: 'computer',
         value: 300,
       }
     )
@@ -92,10 +92,10 @@ describe('Part', function() {
     assert.equal(computer.broken, false)
   })
 
-  it.skip('is invalid without a name', function() {
+  it('is invalid without a name', function() {
     var computer = new Part(
       {
-        type: 'computer', 
+        type: 'computer',
         value: 300,
       }
     )
@@ -103,10 +103,10 @@ describe('Part', function() {
     assert.isFalse(computer.isValid())
   })
 
-  it.skip('is invalid without a type', function() {
+  it('is invalid without a type', function() {
     var computer = new Part(
       {
-        name: 'Alienware 550x', 
+        name: 'Alienware 550x',
         value: 300,
       }
     )
@@ -114,10 +114,10 @@ describe('Part', function() {
     assert.isFalse(computer.isValid())
   })
 
-  it.skip('is invalid without a value', function() {
+  it('is invalid without a value', function() {
     var computer = new Part(
       {
-        name: 'Alienware 550x', 
+        name: 'Alienware 550x',
         type: 'computer',
       }
     )
@@ -125,10 +125,10 @@ describe('Part', function() {
     assert.isFalse(computer.isValid())
   })
 
-  it.skip('is valid', function() {
+  it('is valid', function() {
     var computer = new Part(
       {
-        name: 'Alienware 550x', 
+        name: 'Alienware 550x',
         type: 'computer',
         value: 300,
       }

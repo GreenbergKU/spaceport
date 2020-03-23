@@ -6,33 +6,33 @@ var Part = require('../src/part');
 var Shop = require('../src/shop');
 
 describe('Planet', function() {
-  it.skip('has a name', function() {
+  it('has a name', function() {
     var planet = new Planet({name: 'D1'})
 
     assert.equal(planet.name, 'D1')
   })
 
-  it.skip('can have a different name', function() {
+  it('can have a different name', function() {
     var planet = new Planet({name: 'F2'})
 
     assert.equal(planet.name, 'F2')
   })
 
-  it.skip('can have a shop', function() {
+  it('can have a shop', function() {
     var shop = new Shop({name: 'EZ-mart'})
     var planet = new Planet({name: 'F2', shop: shop})
 
     assert.equal(planet.shop.name, 'EZ-mart')
   })
 
-  it.skip('can have a different shop', function() {
+  it('can have a different shop', function() {
     var shop = new Shop({name: 'Walmart'})
     var planet = new Planet({name: 'F2', shop: shop})
 
     assert.equal(planet.shop.name, 'Walmart')
   })
 
-  it.skip('can allow a ship to land', function() {
+  it('can allow a ship to land', function() {
     var planet = new Planet({name: 'F2'})
     var captian = new Being('Will', 'human');
     var parts = {
@@ -58,21 +58,21 @@ describe('Planet', function() {
     assert.deepEqual(planet.currentShip, fighter)
   })
 
-  it.skip('has coordinates', function() {
+  it('has coordinates', function() {
     var coordinates = {x:0, y:0, z:0}
     var planet = new Planet({name: 'F2', coordinates: coordinates})
 
     assert.deepEqual(planet.coordinates, coordinates)
   })
 
-  it.skip('can have different coordinates', function() {
+  it('can have different coordinates', function() {
     var coordinates = {x:10, y:10, z:0}
     var planet = new Planet({name: 'F2', coordinates: coordinates})
 
     assert.deepEqual(planet.coordinates, coordinates)
   })
 
-  it.skip('can calculate the distance between itself and another planet', function() {
+  it('can calculate the distance between itself and another planet', function() {
     var initCoords = {x:0, y:0, z:0}
     var newCoords = {x:10, y:10, z:10}
     var planet = new Planet({name: 'F2', coordinates: initCoords})
@@ -82,7 +82,7 @@ describe('Planet', function() {
     assert.deepEqual(planet.calculateDistance(otherPlanet), Math.sqrt(300))
   })
 
-  it.skip('can calculate the distance between itself and different planet', function() {
+  it('can calculate the distance between itself and different planet', function() {
     var initCoords = {x:0, y:0, z:0}
     var newCoords = {x:5, y:5, z:5}
     var planet = new Planet({name: 'F2', coordinates: initCoords})
