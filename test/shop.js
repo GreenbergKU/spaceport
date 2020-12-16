@@ -4,6 +4,8 @@ var Part = require('../src/part');
 var Being = require('../src/being');
 var Ship = require('../src/ship');
 
+//changed all Ship({..., captian: }) to Ship({..., captain})
+
 describe('Shop', function() {
   it('has a name', function() {
     var newShop = new Shop({name: 'EZ-way'})
@@ -91,7 +93,7 @@ describe('Shop', function() {
       {
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
       }
@@ -113,7 +115,7 @@ describe('Shop', function() {
       {
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
       }
@@ -135,7 +137,7 @@ describe('Shop', function() {
       {
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
       }
