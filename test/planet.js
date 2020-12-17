@@ -46,7 +46,7 @@ describe('Planet', function() {
       { 
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
         parts: parts,
@@ -91,14 +91,14 @@ describe('Planet', function() {
     assert.deepEqual(planet.calculateDistance(otherPlanet), Math.sqrt(75))
   })
 
-  it.skip('can refuel a ship', function() {
+  it('can refuel a ship', function() {
     var planet = new Planet({name: 'F2'})
     var captian = new Being('Will', 'human');
     var fighter = new Ship(
       { 
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
       }
@@ -110,7 +110,7 @@ describe('Planet', function() {
     assert.equal(fighter.fuel, fighter.fuelCapacity)
   })
 
-  it.skip('cannot send a ship to another planet if the ship is missing parts', function() {
+  it('cannot send a ship to another planet if the ship is missing parts', function() {
     var planet = new Planet({name: 'F2', coordinates: {x:0, y:0, z:0}})
     var otherPlanet = new Planet({name: 'M2', coordinates: {x:1, y:1, z:1}})
     var captian = new Being('Will', 'human');
@@ -118,7 +118,7 @@ describe('Planet', function() {
       { 
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
       }
@@ -131,7 +131,7 @@ describe('Planet', function() {
     assert.equal(result, "Clearance denied: Cannot fly without all parts")
   })
 
-  it.skip('cannot send a ship if it is has no fuel', function() {
+  it('cannot send a ship if it is has no fuel', function() {
     var planet = new Planet({name: 'F2', coordinates: {x:0, y:0, z:0}})
     var otherPlanet = new Planet({name: 'M2', coordinates: {x:1, y:1, z:1}})
     var captian = new Being('Will', 'human');
@@ -146,7 +146,7 @@ describe('Planet', function() {
       { 
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
         parts: parts,
@@ -159,7 +159,7 @@ describe('Planet', function() {
     assert.equal(result, "Clearance denied: Cannot fly without fuel")
   })
 
-  it.skip('cannot send a ship if it is has insufficient fuel', function() {
+  it('cannot send a ship if it is has insufficient fuel', function() {
     var planet = new Planet({name: 'F2', coordinates: {x:0, y:0, z:0}})
     var otherPlanet = new Planet({name: 'M2', coordinates: {x:1, y:1, z:1}})
     var captian = new Being('Will', 'human');
@@ -174,7 +174,7 @@ describe('Planet', function() {
       { 
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
         parts: parts,
@@ -189,7 +189,7 @@ describe('Planet', function() {
     assert.equal(result, `Clearance denied: Need at least ${Math.ceil(fuelRequired)} units of fuel to reach ${otherPlanet.name}`)
   })
 
-  it.skip('can send a ship and update the ship & planets', function() {
+  it('can send a ship and update the ship & planets', function() {
     var planet = new Planet({name: 'F2', coordinates: {x:0, y:0, z:0}})
     var otherPlanet = new Planet({name: 'M2', coordinates: {x:1, y:1, z:1}})
     var captian = new Being('Will', 'human');
@@ -200,11 +200,12 @@ describe('Planet', function() {
       lifeSupport: new Part({name: 'B-98', type: 'lifeSupport', value: 100}),
       landingGear: new Part({name: 'Legs-2', type: 'landingGear', value: 100}),
     }
+
     var fighter = new Ship(
       { 
         name: 'Atlantis',
         type: 'military',
-        captian: captian,
+        captain: captian,
         maxCrew: 2,
         odometer: 3340,
         parts: parts,
