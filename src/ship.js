@@ -14,21 +14,21 @@ class Ship {
     this.crew = [];
     this.cargo = [];
     this.parts = ship.parts || {}; 
-  }    
+  };    
 
   loadCargo(cargoItems) {
     if (cargoItems instanceof Part) {
       this.cargo.push(cargoItems);
-    }
-  }
+    };
+  };
   
   addCrew(posse) {
     for(var i = 0; i < posse.length; i++) {
       if((this.crew.length < this.maxCrew) && (posse[i] instanceof Being)) {
         this.crew.push(posse[i]);
-      }
-    }
-  } 
+      };
+    };
+  }; 
   
   updatePart(part) {
     if (part.validType.includes(part.type) && part.isValid()) {
@@ -37,8 +37,8 @@ class Ship {
       var diff = existingValue - part.value;
       this.parts[part.type] = part;
       return diff;
-    }
-  }
+    };
+  };
   
   checkReadiness() {
     var status = {};
@@ -54,23 +54,12 @@ class Ship {
       status.notes = `${status.notes} without all parts`;
     } else {
       status.notes = 'Good to go!';
-    }
+    };
     status.readyToFly = hasCaptain && hasFuel && hasParts;
     return status;
-  }
+  };
   
-}
+};
 
 
 module.exports = Ship;
-
-    
-  /*addCrew(member) {
-    if (this.crew.legnth >= this.maxCrew) return;
-    [...member].forEach(member => {
-      if (member instanceof Being) this.crew.push(member);
-    });
-      // not sure why this worked, time running out, google search, found something similar to this, did a few tweeks, passed! 
-    this.crew.splice(this.maxCrew);
-  }
-  */ 

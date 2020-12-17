@@ -32,35 +32,18 @@ class Planet {
         var fuelRequired = this.calculateDistance(otherPlanet);
         var sufficientFuel = this.currentShip.fuel >= Math.ceil(fuelRequired);
         var clearanceMessage;
-        !status.readyToFly || !sufficientFuel ? 
-            clearanceMessage = !status.readyToFly ? `Clearance denied: ${status.notes}`
-                : `Clearance denied: Need at least ${Math.ceil(fuelRequired)} units of fuel to reach ${otherPlanet.name}` 
-            : (
-                this.currentShip.fuel -= Math.ceil(fuelRequired),
-                otherPlanet.landShip(this.currentShip),
-                this.departShip(),
-                clearanceMessage = `Clearance granted: Enjoy your trip to ${otherPlanet.name}`
-            );
+        !status.readyToFly || !sufficientFuel ? clearanceMessage = !status.readyToFly ? `Clearance denied: ${status.notes}`
+            : `Clearance denied: Need at least ${Math.ceil(fuelRequired)} units of fuel to reach ${otherPlanet.name}` 
+        : (
+            this.currentShip.fuel -= Math.ceil(fuelRequired),
+            otherPlanet.landShip(this.currentShip),
+            this.departShip(),
+            clearanceMessage = `Clearance granted: Enjoy your trip to ${otherPlanet.name}`
+        );
         return clearanceMessage;
     }; 
 
-}
+};
 
 
 module.exports = Planet;
-
-/*
-giveClearance(otherPlanet) {
-    var status = this.currentShip.checkReadiness();
-    var fuelRequired = this.calculateDistance(otherPlanet);
-    var sufficientFuel = this.currentShip.fuel >= Math.ceil(fuelRequired);
-    var clearanceMessage = !status.readyToFly ? `Clearance denied: ${status.notes}` : 
-    this.currentShip.fuel < fuelRequired ? `Clearance denied: Need at least ${Math.ceil(fuelRequired)} units of fuel to reach ${otherPlanet.name}`: `Clearance granted: Enjoy your trip to ${otherPlanet.name}`;
-    if (status.readyToFly) {
-        this.currentShip.fuel -= Math.ceil(fuelRequired);
-        otherPlanet.landShip(this.currentShip);
-        this.departShip();
-    };
-    return clearanceMessage 
-}
-*/

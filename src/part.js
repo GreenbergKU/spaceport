@@ -1,24 +1,18 @@
 class Part {
-    constructor(object) {
-      this.name = object.name;
-      this.type = object.type;
+    constructor(part) {
+      this.name = part.name;
+      this.type = part.type;
       this.validType = ['landing gear', 'shell', 'hyperdrive', 'computer', 'life support', undefined]
-      this.type = this.validType.includes(object.type) ? object.type : undefined;
-      this.value = object.value;
+      this.type = this.validType.includes(part.type) ? part.type : undefined;
+      this.value = part.value;
       this.broken = false;
-    }        
-        //* expression evaluates to a boolean with a value of true or false
-        //* defaults to true if undefined or null
-      //this.type = object.type;
+    };
     
     isValid() {
-      if (this.name === undefined || this.type === undefined || this.value === undefined) {
-        return false;
-      }
-      return true;
-    }
+      return this.name === undefined || this.type === undefined || this.value === undefined ? false : true;
+    };
 
-}
+};
 
 
 module.exports = Part;
