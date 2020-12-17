@@ -1,38 +1,20 @@
 var Being = require('../src/being');
 var Part = require('../src/part');
+
 class Ship {
-  constructor({
-    name,
-    type,
-    maxCrew,
-    odometer = 0,
-    fuelCapacity = 10,
-    fuel = 0,
-    captain,
-    parts,
-  }) {
-    this.name = name;
+  constructor(ship) {
+    this.name = ship.name;
     this.validTypes = ["military", "cargo", "passenger"];
-    this.type = this.validTypes.includes(type) ? type : undefined;
-    this.maxCrew = maxCrew;
-    this.odometer = odometer;
-    this.fuelCapacity = fuelCapacity;
-    this.fuel = fuel;
-    this.captain = captain;
+    this.type = this.validTypes.includes(ship.type) ? ship.type : undefined;
+    this.maxCrew = ship.maxCrew;
+    this.odometer = ship.odometer || 0;
+    this.fuelCapacity = ship.fuelCapacity || 10;
+    this.fuel = ship.fuel || 0;
+    this.captain = ship.captain;
     this.crew = [];
     this.cargo = [];
-    this.parts = {}; 
-    }    
-    
-  /*addCrew(member) {
-    if (this.crew.legnth >= this.maxCrew) return;
-    [...member].forEach(member => {
-      if (member instanceof Being) this.crew.push(member);
-    });
-      // not sure why this worked, time running out, google search, found something similar to this, did a few tweeks, passed! 
-    this.crew.splice(this.maxCrew);
-  }
-  */ 
+    this.parts = ship.parts || {}; 
+  }    
 
   loadCargo(cargoItems) {
     if (cargoItems instanceof Part) {
@@ -48,11 +30,8 @@ class Ship {
     }
   } 
   
-
-  
-  /*
   updatePart(part) {
-    if (part.validTypes.includes(part.type)) {
+    if (part.validType.includes(part.type) && part.isValid()) {
       var existingPart = this.parts[part.type];
       var existingValue = existingPart ? existingPart.value : 0;
       var diff = existingValue - part.value;
@@ -60,8 +39,6 @@ class Ship {
       return diff;
     }
   }
-  */
-
   
   checkReadiness() {
     var status = {};
@@ -69,7 +46,6 @@ class Ship {
     var hasFuel = !!this.fuel;
     var hasParts = !!Object.keys(this.parts).length;
     status.notes = 'Cannot fly';
-
     if (!hasCaptain) {
       status.notes = `${status.notes} without a captain`;
     } else if (!hasFuel) {
@@ -79,7 +55,6 @@ class Ship {
     } else {
       status.notes = 'Good to go!';
     }
-  
     status.readyToFly = hasCaptain && hasFuel && hasParts;
     return status;
   }
@@ -87,16 +62,15 @@ class Ship {
 }
 
 
-
-
-/*
-
-    isValid() {
-      if (this.name === undefined || this.type === undefined || this.value === undefined) {
-        return false;
-        } //else {
-      return true;
-      //}
-    }
-*/
 module.exports = Ship;
+
+    
+  /*addCrew(member) {
+    if (this.crew.legnth >= this.maxCrew) return;
+    [...member].forEach(member => {
+      if (member instanceof Being) this.crew.push(member);
+    });
+      // not sure why this worked, time running out, google search, found something similar to this, did a few tweeks, passed! 
+    this.crew.splice(this.maxCrew);
+  }
+  */ 
