@@ -6,7 +6,7 @@ describe('Being', function() {
     var alien = new Being('Walter')
 
     assert.isTrue(alien.isAlive);
-} )
+  })
 
   it('should have a name', function() {
     var alien = new Being('Walter')
