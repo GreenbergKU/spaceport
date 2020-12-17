@@ -1,5 +1,5 @@
 class Being {
-    constructor (name, species, credits) {
+    constructor(name, species, credits) {
         this.isAlive = true;
         this.name = name;
         this.species = species;
@@ -10,7 +10,7 @@ class Being {
         this.credits = this.credits + newCredits;
     };
 
-}
+};
 
 
 module.exports = Being;

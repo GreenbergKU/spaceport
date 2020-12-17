@@ -7,20 +7,14 @@ class Shop {
         this.item = shop.item;
         this.value = shop.value;
         this.broken = false;
-        this.validParts = [
-            "shell",
-            "hyperdrive",
-            "computer",
-            "life support",
-            "landing gear"
-        ]
-    }
+        this.validParts = ["shell", "hyperdrive", "computer", "life support", "landing gear"];
+    };
 
     addInventory(item) { 
         if(item instanceof Part) {
             this.inventory[item.type] = item;
-        }
-    }
+        };
+    };
 
     outfitShip(ship, part) {
         var hasCaptain = ship.captain;
@@ -37,10 +31,10 @@ class Shop {
             ship.captain.credits = captainCredits - this.inventory[part].value
             delete this.inventory[part];
             return `${part} added to ship`;
-        }        
-    }
+        };        
+    };
 
-}    
+};    
 
 
 module.exports = Shop;

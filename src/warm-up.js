@@ -30,7 +30,7 @@ isHuman = true;
 // Reassign (not initialize) your "age" variable from above. Use a built in math
 // operator to make your age half of what it currently is.
 
-age=age*.5;
+age *= .5;
 
 // Create a variable named "greeting", and assign it to a greeting of your
 // choice. Your chosen greeting must make use of your "name" variable from above
@@ -45,11 +45,11 @@ greeting;
 // comparison operator.
 
 var isMinor = false;
-    if (age < 18) {
-      return true;
-    } else {
-      return false;
-    }
+if (age < 18) {
+  return true;
+} else {
+  return false;
+};
 
 //------------------------- Conditionals -------------------------//
 
@@ -113,6 +113,6 @@ var planet = {
 // Write the code to add the key of habitable, with the value of true. Use dot
 // notation to do this. DO NOT modify your code from above.
 
-planet.habitable= true;
+planet.habitable = true;
 
 
